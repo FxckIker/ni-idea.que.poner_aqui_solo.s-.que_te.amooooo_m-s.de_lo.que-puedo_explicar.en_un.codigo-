@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje Especial</title>
+    <style>
+        body {
+            background-color: #87CEEB; /* Azul cielo */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .hidden {
+            display: none;
+        }
+        .content, .question {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:disabled {
+            background-color: #ddd;
+        }
+        .image-container {
+            margin-top: 20px;
+        }
+        .image-container img {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        function checkPassword() {
+            const passwordInput = document.getElementById('password').value;
+            const correctPassword = "748529";  // Aquí está la contraseña numérica
+            if (passwordInput === correctPassword) {
+                document.getElementById('password-form').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } else {
+                alert("Contraseña incorrecta. Intenta de nuevo.");
+            }
+        }
+
+        function showQuestion() {
+            document.getElementById('question').classList.remove('hidden');
+        }
+
+        function answerQuestion(answer) {
+            if (answer === 'yes') {
+                // Redirigir a una página nueva
+                window.location.href = "pagina_en_blanco.html";  // Redirige a la página en blanco
+            } else {
+                alert("Opción no válida.");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div id="password-form">
+        <h2>Introduce la contraseña</h2>
+        <input type="password" id="password" placeholder="Contraseña">
+        <button onclick="checkPassword()">Entrar</button>
+    </div>
+
+    <div id="content" class="hidden">
+        <h1>Te extraño mucho</h1>
+
+        <div class="image-container">
+            <!-- Aquí puedes agregar imágenes -->
+            <img src="imagen1.jpg" alt="Imagen 1">
+            <img src="imagen2.jpg" alt="Imagen 2">
+        </div>
+
+        <p>¡Hola! He estado pensando mucho en ti...</p>
+        
+        <div class="content">
+            <button onclick="showQuestion()">Te quiero hacer una pregunta</button>
+        </div>
+
+        <div id="question" class="hidden question">
+            <h2>¿Me extrañas tanto como yo a ti?</h2>
+            <button onclick="answerQuestion('yes')">Sí</button>
+            <button onclick="answerQuestion('no')" disabled>No</button>
+        </div>
+    </div>
+
+</body>
+</html>
