@@ -7,8 +7,6 @@
     <style>
         body {
             background-color: black; /* Fondo negro */
-            background-image: radial-gradient(circle, white 1px, transparent 1px); /* Efecto de estrellas */
-            background-size: 20px 20px; /* Tamaño de las estrellas */
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
@@ -86,4 +84,13 @@
 
         function showQuestion() {
             document.getElementById('question-section').style.display = 'none';
-            document.getElementById('next-sec
+            document.getElementById('next-section').style.display = 'block';
+        }
+
+        function answerYes() {
+            window.location.href = "otra-pagina.html"; // Redirige a otra página en blanco
+        }
+    </script>
+
+</body>
+</html>
