@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,6 +32,10 @@
             background-color: gray;
             cursor: not-allowed;
         }
+        #images-section img {
+            margin: 10px;
+            width: 300px;
+        }
     </style>
 </head>
 <body>
@@ -45,8 +50,13 @@
     <div id="content">
         <h2>Carta</h2>
         <p>Hola, quería decirte que te extraño mucho. Espero que estés bien.</p>
-        <!-- Aquí puedes agregar más texto o imágenes si deseas -->
-        
+
+        <!-- Sección de imágenes después de la contraseña -->
+        <div id="images-section">
+            <img src="ed.jpg" alt="Primera imagen">
+            <img src="ik.jpg" alt="Segunda imagen">
+        </div>
+
         <div id="question-section">
             <p>Te quiero hacer una pregunta:</p>
             <button class="btn" onclick="showQuestion()">Haz clic aquí</button>
