@@ -6,11 +6,11 @@
     <title>Sigues en mi mente</title>
     <style>
         body {
-            background-color: black; /* Fondo negro */
+            background-color: black;
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
-            color: white; /* El texto será blanco para hacerlo visible en el fondo negro */
+            color: white;
         }
         #content {
             display: none;
@@ -34,50 +34,78 @@
         }
         #images-section img {
             margin: 10px;
-            /* Las imágenes se mostrarán en su tamaño original sin modificaciones */
+            max-width: 80%;
         }
-        .letter {
-            text-align: justify; /* Justificar el texto */
-            text-indent: 30px; /* Añadir sangría a cada párrafo */
-            line-height: 1.6; /* Espaciado entre líneas */
-            margin: 20px; /* Margen para separar la carta */
+        .content {
+            text-align: center;
+            justify-content: center;
+            display: block;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: justify;
+        }
+        #video-section {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
     <div id="password-form">
-        <h1>Ola</h1>
-        <p>Ingresa la contraseña que te mande aqui xd.</p>
+        <h1>Apurate plis</h1>
+        <p>Ingresa la contra que te mande aqui xd.</p>
         <input type="password" id="password" placeholder="Contraseña">
         <button onclick="checkPassword()">Entrar</button>
     </div>
 
     <div id="content">
-        <h2>El eco de su sombra</h2>
+        <h2>El eco de tu sombra</h2>
 
-        <!-- Carta que proporcionaste, colocada después de "El eco de tu sombra" -->
-        <div class="letter">
-            <p>Hoy lo volví a pensar. Otra vez apareció sin permiso, como un susurro entre mis pensamientos que llega y se queda ahí, persistente. Lo extraño, y es una extrañeza extraña, ¿sabes? Porque nunca pude tocarlo, nunca sentí su piel ni el peso de su abrazo, pero la ausencia duele como si sí lo hubiera tenido.</p>
-            <p>A veces me pregunto si fue un sueño, si todo fue solo un espejismo que me inventé en noches solitarias. Pero tengo su rostro tan grabado, casi tangible, como las fotos que nunca me atreví a borrar. Es como un fantasma que camina a mi lado, invisible para el mundo pero presente para mí, recordándome lo que pudo haber sido y nunca fue.</p>
-            <p>No puedo evitar imaginar cómo habría sido si tan solo nos hubiéramos encontrado, si ese instante que siempre prometimos hubiera sucedido. Lo veo en cada esquina de la ciudad, entre la gente que pasa, en las canciones que ya no escucho porque me lo recuerdan demasiado. Está tan metido en mi memoria que a veces creo que podría reconocerlo incluso sin haberlo visto jamás en carne y hueso.</p>
-            <p>Es extraño cómo alguien que nunca tuve realmente, puede estar tan vivo en mis pensamientos. Tal vez lo inventé, tal vez idealicé cada palabra, cada risa. Pero hoy lo volví a pensar, y aunque cada vez se siente más como un sueño lejano, sigo aquí, esperando, en el fondo, que algún día logre encontrarlo entre todas estas sombras.</p>
+        <!-- Carta inicial centrada y justificada -->
+        <div class="content">
+            <p>Hoy lo volví a pensar. Otra vez apareció sin permiso, como un susurro entre mis pensamientos que llega y se queda ahí, persistente...</p>
         </div>
 
-        <!-- Sección de imágenes después de la contraseña -->
+        <!-- Imagen inicial -->
         <div id="images-section">
             <img src="ed.jpg" alt="Primera imagen">
         </div>
 
+        <!-- Pregunta después de la carta inicial -->
         <div id="question-section">
-            <p>Si estas aqui me gustaria preguntarte algo</p>
-            <button class="btn" onclick="showQuestion()">Haz clic aqui, no me importa que te valga, picale aqui</button>
+            <p>¿Me extrañas tanto como yo a ti?</p>
+            <button class="btn" onclick="showNextMessage()">Sí</button>
+            <button class="btn" disabled>No</button>
         </div>
 
+        <!-- Nueva carta y video tras responder la pregunta -->
         <div id="next-section" style="display:none;">
-            <p>¿Me extrañas tanto como yo a ti?</p>
-            <button class="btn" onclick="answerYes()">Sí</button>
-            <button class="btn" disabled>No</button>
+            <h2>Un título para la carta final</h2>
+            <div class="content">
+                <p>
+                    Ha pasado tiempo desde que nos alejamos, pero sé que te he extrañado más de lo que alguna vez pensé que lo haría...
+                    <!-- Resto del contenido de la carta -->
+                    <p>Con todo el amor que aún me queda, <strong>Iker</strong></p>
+                </p>
+            </div>
+            <div id="video-section">
+                <video width="320" height="240" controls>
+                    <source src="eduuu.mp4" type="video/mp4">
+                    Tu navegador no soporta este video.
+                </video>
+                <p><button class="btn" onclick="showFinalMessage()">Clic aquí</button></p>
+            </div>
+        </div>
+
+        <!-- Mensaje final tras el video -->
+        <div id="final-section" style="display:none;">
+            <p>Perdón si te hice perder tu tiempo.</p>
+            <div id="final-video-section">
+                <video width="320" height="240" controls>
+                    <source src="ben.mp4" type="video/mp4">
+                    Tu navegador no soporta este video.
+                </video>
+            </div>
         </div>
     </div>
 
@@ -94,13 +122,15 @@
             }
         }
 
-        function showQuestion() {
+        function showNextMessage() {
             document.getElementById('question-section').style.display = 'none';
+            document.getElementById('images-section').style.display = 'none';
             document.getElementById('next-section').style.display = 'block';
         }
 
-        function answerYes() {
-            window.location.href = "otra-pagina.html"; // Redirige a otra página en blanco
+        function showFinalMessage() {
+            document.getElementById('next-section').style.display = 'none';
+            document.getElementById('final-section').style.display = 'block';
         }
     </script>
 
