@@ -3,134 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Especial</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Sigues en mi mente</title>
     <style>
         body {
-            background-color: black;
-            font-family: 'Roboto', sans-serif;
-            color: white;
+            background-color: black; /* Fondo negro */
+            font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
+            color: white;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .content-section {
+        #content, #final-section {
             display: none;
         }
-        .content-section.active {
-            display: block;
+        #question-section, #follow-up-question {
+            margin-top: 20px;
         }
         .btn {
             padding: 10px 20px;
             font-size: 16px;
+            margin: 5px;
             cursor: pointer;
             color: white;
             background-color: green;
             border: none;
             border-radius: 5px;
-            margin-top: 10px;
         }
         .btn:disabled {
             background-color: gray;
             cursor: not-allowed;
         }
-        .video-container {
-            margin: 20px auto;
-            width: 80%;
-        }
-        video {
-            width: 100%;
-            border-radius: 10px;
+        .text-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: justify;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div id="password-form" class="content-section active">
+    <div id="password-form">
         <h1>Apurate plis</h1>
         <p>Ingresa la contra que te mande aquí xd.</p>
         <input type="password" id="password" placeholder="Contraseña">
-        <button class="btn" onclick="checkPassword()">Entrar</button>
+        <button onclick="checkPassword()">Entrar</button>
     </div>
 
-    <div id="content" class="content-section">
+    <div id="content">
         <h2>El eco de tu sombra</h2>
-        <p>Hoy lo volví a pensar. Otra vez apareció sin permiso, como un susurro entre mis pensamientos que llega y se queda ahí, persistente. Lo extraño, y es una extrañeza extraña, ¿sabes? Porque nunca pude tocarlo, nunca sentí su piel ni el peso de su abrazo, pero la ausencia duele como si sí lo hubiera tenido.</p>
-        <p>A veces me pregunto si fue un sueño, si todo fue solo un espejismo que me inventé en noches solitarias. Pero tengo su rostro tan grabado, casi tangible, como las fotos que nunca me atreví a borrar. Es como un fantasma que camina a mi lado, invisible para el mundo pero presente para mí, recordándome lo que pudo haber sido y nunca fue.</p>
-        <p>No puedo evitar imaginar cómo habría sido si tan solo nos hubiéramos encontrado, si ese instante que siempre prometimos hubiera sucedido. Lo veo en cada esquina de la ciudad, entre la gente que pasa, en las canciones que ya no escucho porque me lo recuerdan demasiado. Está tan metido en mi memoria que a veces creo que podría reconocerlo incluso sin haberlo visto jamás en carne y hueso.</p>
-        <p>Es extraño cómo alguien que nunca tuve realmente, puede estar tan vivo en mis pensamientos. Tal vez lo inventé, tal vez idealicé cada palabra, cada risa. Pero hoy lo volví a pensar, y aunque cada vez se siente más como un sueño lejano, sigo aquí, esperando, en el fondo, que algún día logre encontrarlo entre todas estas sombras.</p>
-        <p>¿Me extrañas tanto como yo a ti?</p>
-        <button class="btn" onclick="showNextSection()">Sí</button>
-        <button class="btn" disabled>No</button>
+        <div class="text-content">
+            <p>Hoy lo volví a pensar. Otra vez apareció sin permiso, como un susurro entre mis pensamientos que llega y se queda ahí, persistente. Lo extraño, y es una extrañeza extraña, ¿sabes? Porque nunca pude tocarlo, nunca sentí su piel ni el peso de su abrazo, pero la ausencia duele como si sí lo hubiera tenido.</p>
+            <p>A veces me pregunto si fue un sueño, si todo fue solo un espejismo que me inventé en noches solitarias. Pero tengo su rostro tan grabado, casi tangible, como las fotos que nunca me atreví a borrar. Es como un fantasma que camina a mi lado, invisible para el mundo pero presente para mí, recordándome lo que pudo haber sido y nunca fue.</p>
+            <p>No puedo evitar imaginar cómo habría sido si tan solo nos hubiéramos encontrado, si ese instante que siempre prometimos hubiera sucedido. Lo veo en cada esquina de la ciudad, entre la gente que pasa, en las canciones que ya no escucho porque me lo recuerdan demasiado. Está tan metido en mi memoria que a veces creo que podría reconocerlo incluso sin haberlo visto jamás en carne y hueso.</p>
+            <p>Es extraño cómo alguien que nunca tuve realmente, puede estar tan vivo en mis pensamientos. Tal vez lo inventé, tal vez idealicé cada palabra, cada risa. Pero hoy lo volví a pensar, y aunque cada vez se siente más como un sueño lejano, sigo aquí, esperando, en el fondo, que algún día logre encontrarlo entre todas estas sombras.</p>
+        </div>
+
+        <div id="question-section">
+            <p>Te quiero hacer una pregunta:</p>
+            <button class="btn" onclick="showQuestion()">Haz clic aquí</button>
+        </div>
+
+        <div id="next-section" style="display:none;">
+            <p>¿Me extrañas tanto como yo a ti?</p>
+            <button class="btn" onclick="answerYes()">Sí</button>
+            <button class="btn" disabled>No</button>
+        </div>
     </div>
 
-    <div id="next-section" class="content-section">
-        <h2>El tiempo y la distancia</h2>
-        <p>Ha pasado tiempo desde que nos alejamos, pero sé que te he extrañado más de lo que alguna vez pensé que lo haría. Te extraño en formas que a veces me asustan, en maneras que no puedo controlar. He llegado a soñarte casi todas las noches, y en esos sueños, todo es tan real que duele despertar, duele volver a este mundo en el que tú y yo somos solo una historia inacabada. Te veo en cada rincón, en cada mirada que lanzo sin querer al vacío, y vuelves a aparecer como si jamás te hubieras ido.</p>
-        <p>Las últimas semanas he estado escribiendo mucho sobre ti, sobre lo que fuiste y sobre lo que aún eres en mí. Como si las palabras fueran una forma de aferrarme a lo poco que me queda de ti. Cada página que escribo es un intento desesperado de vaciar todo este amor que llevo, un amor que sigue tan intacto, tan real, a pesar de la distancia. Me sorprende a veces cuánto te recuerdo en cada momento, como si al escribir pudiera liberar aunque sea un poco de esta mezcla de amor y dolor que me consume.</p>
-        <p>Pero sé que yo puedo ser como una droga. Me doy cuenta de que fui algo inestable, como una tormenta que llegaba sin avisar. Quería darte lo mejor de mí, pero al final, sin querer, fui quien te causó dolor. Es irónico, porque te amo con todo mi ser, pero me pregunto si fui yo quien hizo que te rompieras. A veces me siento como un veneno dulce que se deslizó en tu vida, y creo que me estoy resignando a la idea de que tal vez, solo tal vez, estás mejor sin mí.</p>
-        <p>Lo único que quiero es tu felicidad, y pensar que ahora puedes encontrarla sin mi caos me da un poco de paz. Me duele, sí, me duele saber que no estaré ahí para verte sonreír, para escucharte reír de nuevo, pero esa tristeza se vuelve soportable si eso significa que estás bien. Te llevaste tanto de mí, y sin embargo, no cambiaría ni un solo segundo, ni una sola palabra de todo lo que vivimos.</p>
-        <p>Siempre serás esa persona a la que amo incluso en la distancia, ese lugar al que no puedo regresar, pero que siempre, siempre será parte de mí. Te amo y quiero que seas feliz, aunque eso signifique que debo aprender a dejarte ir.</p>
+    <div id="follow-up-question" style="display:none;">
         <p>¿Quieres saber algo más?</p>
-        <button class="btn" onclick="showVideoSection()">Sí</button>
+        <button class="btn" onclick="showFinalSection()">Sí</button>
         <button class="btn" disabled>No</button>
     </div>
 
-    <div id="video-section" class="content-section">
-        <div class="video-container">
-            <video controls>
-                <source src="eduuu.mp4" type="video/mp4">
-                Tu navegador no soporta este video.
-            </video>
+    <div id="final-section" style="display:none;">
+        <h2>Algún día entenderás...</h2>
+        <div class="text-content">
+            <p>Ha pasado tiempo desde que nos alejamos, pero sé que te he extrañado más de lo que alguna vez pensé que lo haría. Te extraño en formas que a veces me asustan, en maneras que no puedo controlar. He llegado a soñarte casi todas las noches, y en esos sueños, todo es tan real que duele despertar, duele volver a este mundo en el que tú y yo somos solo una historia inacabada. Te veo en cada rincón, en cada mirada que lanzo sin querer al vacío, y vuelves a aparecer como si jamás te hubieras ido.</p>
+            <p>Las últimas semanas he estado escribiendo mucho sobre ti, sobre lo que fuiste y sobre lo que aún eres en mí. Como si las palabras fueran una forma de aferrarme a lo poco que me queda de ti. Cada página que escribo es un intento desesperado de vaciar todo este amor que llevo, un amor que sigue tan intacto, tan real, a pesar de la distancia. Me sorprende a veces cuánto te recuerdo en cada momento, como si al escribir pudiera liberar aunque sea un poco de esta mezcla de amor y dolor que me consume.</p>
+            <p>Pero sé que yo puedo ser como una droga. Me doy cuenta de que fui algo inestable, como una tormenta que llegaba sin avisar. Quería darte lo mejor de mí, pero al final, sin querer, fui quien te causó dolor. Es irónico, porque te amo con todo mi ser, pero me pregunto si fui yo quien hizo que te rompieras. A veces me siento como un veneno dulce que se deslizó en tu vida, y creo que me estoy resignando a la idea de que tal vez, solo tal vez, estás mejor sin mí.</p>
+            <p>Lo único que quiero es tu felicidad, y pensar que ahora puedes encontrarla sin mi caos me da un poco de paz. Me duele, sí, me duele saber que no estaré ahí para verte sonreír, para escucharte reír de nuevo, pero esa tristeza se vuelve soportable si eso significa que estás bien. Te llevaste tanto de mí, y sin embargo, no cambiaría ni un solo segundo, ni una sola palabra de todo lo que vivimos.</p>
+            <p>Siempre serás esa persona a la que amo incluso en la distancia, ese lugar al que no puedo regresar, pero que siempre, siempre será parte de mí. Te amo y quiero que seas feliz, aunque eso signifique que debo aprender a dejarte ir.</p>
+            <p>Con todo el amor que aún me queda, Iker.</p>
         </div>
-        <p><button class="btn" onclick="showFinalSection()">Clic aquí</button></p>
+        <video src="ben.mp4" controls></video>
     </div>
 
-    <div id="final-section" class="content-section">
-        <h2>Reflexión final</h2>
-        <p>Perdón si te hice perder tu tiempo.</p>
-        <div class="video-container">
-            <video controls>
-                <source src="ben.mp4" type="video/mp4">
-                Tu navegador no soporta este video.
-            </video>
-        </div>
-    </div>
-</div>
+    <script>
+        const correctPassword = "309";
 
-<script>
-    const correctPassword = "309";
-
-    function checkPassword() {
-        const passwordInput = document.getElementById('password').value;
-        if (passwordInput === correctPassword) {
-            document.getElementById('password-form').classList.remove('active');
-            document.getElementById('content').classList.add('active');
-        } else {
-            alert("Contraseña incorrecta. Intenta de nuevo.");
+        function checkPassword() {
+            const passwordInput = document.getElementById('password').value;
+            if (passwordInput === correctPassword) {
+                document.getElementById('password-form').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } else {
+                alert("Contraseña incorrecta. Intenta de nuevo.");
+            }
         }
-    }
 
-    function showNextSection() {
-        document.getElementById('content').classList.remove('active');
-        document.getElementById('next-section').classList.add('active');
-    }
+        function showQuestion() {
+            document.getElementById('question-section').style.display = 'none';
+            document.getElementById('next-section').style.display = 'block';
+        }
 
-    function showVideoSection() {
-        document.getElementById('next-section').classList.remove('active');
-        document.getElementById('video-section').classList.add('active');
-    }
+        function answerYes() {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('next-section').style.display = 'none';
+            document.getElementById('follow-up-question').style.display = 'block';
+        }
 
-    function showFinalSection() {
-        document.getElementById('video-section').classList.remove('active');
-        document.getElementById('final-section').classList.add('active');
-    }
-</script>
+        function showFinalSection() {
+            document.getElementById('follow-up-question').style.display = 'none';
+            document.getElementById('final-section').style.display = 'block';
+        }
+    </script>
 
 </body>
 </html>
