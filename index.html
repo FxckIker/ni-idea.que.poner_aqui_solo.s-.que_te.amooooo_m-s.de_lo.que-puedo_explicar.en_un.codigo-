@@ -6,44 +6,64 @@
     <title>Mensaje Especial</title>
     <style>
         body {
-            background-color: #87CEEB; /* Azul cielo */
+            background-color: #87CEEB; /* Fondo azul cielo */
             font-family: Arial, sans-serif;
             text-align: center;
-            padding-top: 50px;
+            padding: 20px;
         }
-        .hidden {
+        #content {
             display: none;
         }
-        .content, .question {
+        #question-section, #next-section {
             margin-top: 20px;
         }
-        button {
+        .btn {
             padding: 10px 20px;
             font-size: 16px;
-            margin-top: 20px;
+            margin: 5px;
             cursor: pointer;
-            background-color: #4CAF50;
             color: white;
+            background-color: green;
             border: none;
             border-radius: 5px;
         }
-        button:disabled {
-            background-color: #ddd;
-        }
-        .image-container {
-            margin-top: 20px;
-        }
-        .image-container img {
-            width: 200px;
-            height: 200px;
-            margin: 10px;
-            border-radius: 10px;
+        .btn:disabled {
+            background-color: gray;
+            cursor: not-allowed;
         }
     </style>
+</head>
+<body>
+
+    <div id="password-form">
+        <h1>Bienvenido</h1>
+        <p>Por favor, ingresa la contraseña para ver el mensaje.</p>
+        <input type="password" id="password" placeholder="Contraseña">
+        <button onclick="checkPassword()">Entrar</button>
+    </div>
+
+    <div id="content">
+        <h2>Carta</h2>
+        <p>Hola, quería decirte que te extraño mucho. Espero que estés bien.</p>
+        <!-- Aquí puedes agregar más texto o imágenes si deseas -->
+        
+        <div id="question-section">
+            <p>Te quiero hacer una pregunta:</p>
+            <button class="btn" onclick="showQuestion()">Haz clic aquí</button>
+        </div>
+
+        <div id="next-section" style="display:none;">
+            <p>¿Me extrañas tanto como yo a ti?</p>
+            <button class="btn" onclick="answerYes()">Sí</button>
+            <button class="btn" disabled>No</button>
+        </div>
+    </div>
+
     <script>
+        const correctPassword = "309"; // Nueva contraseña
+
         function checkPassword() {
             const passwordInput = document.getElementById('password').value;
-            const correctPassword = "748529";  // Aquí está la contraseña numérica
             if (passwordInput === correctPassword) {
                 document.getElementById('password-form').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
@@ -53,48 +73,14 @@
         }
 
         function showQuestion() {
-            document.getElementById('question').classList.remove('hidden');
+            document.getElementById('question-section').style.display = 'none';
+            document.getElementById('next-section').style.display = 'block';
         }
 
-        function answerQuestion(answer) {
-            if (answer === 'yes') {
-                // Redirigir a una página nueva
-                window.location.href = "pagina_en_blanco.html";  // Redirige a la página en blanco
-            } else {
-                alert("Opción no válida.");
-            }
+        function answerYes() {
+            window.location.href = "otra-pagina.html"; // Redirige a otra página en blanco
         }
     </script>
-</head>
-<body>
-
-    <div id="password-form">
-        <h2>Introduce la contraseña</h2>
-        <input type="password" id="password" placeholder="Contraseña">
-        <button onclick="checkPassword()">Entrar</button>
-    </div>
-
-    <div id="content" class="hidden">
-        <h1>Te extraño mucho</h1>
-
-        <div class="image-container">
-            <!-- Aquí puedes agregar imágenes -->
-            <img src="imagen1.jpg" alt="Imagen 1">
-            <img src="imagen2.jpg" alt="Imagen 2">
-        </div>
-
-        <p>¡Hola! He estado pensando mucho en ti...</p>
-        
-        <div class="content">
-            <button onclick="showQuestion()">Te quiero hacer una pregunta</button>
-        </div>
-
-        <div id="question" class="hidden question">
-            <h2>¿Me extrañas tanto como yo a ti?</h2>
-            <button onclick="answerQuestion('yes')">Sí</button>
-            <button onclick="answerQuestion('no')" disabled>No</button>
-        </div>
-    </div>
 
 </body>
 </html>
